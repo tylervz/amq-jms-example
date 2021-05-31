@@ -26,11 +26,9 @@ dependencies {
     implementation("javax.annotation:javax.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-
+    implementation("io.micronaut.jms:micronaut-jms-activemq-classic:1.0.0.M3")
     testImplementation("io.micronaut:micronaut-http-client")
-
 }
-
 
 application {
     mainClass.set("amq.jms.example.AmqJmsExampleCommand")
@@ -39,6 +37,3 @@ java {
     sourceCompatibility = JavaVersion.toVersion("11")
     targetCompatibility = JavaVersion.toVersion("11")
 }
-
-
-

@@ -1,0 +1,15 @@
+amq:
+  image: "registry.access.redhat.com/jboss-amq-6/amq63-openshift:1.4-44"
+  hostname: "amq"
+  environment:
+    AMQ_USER: "activemq"
+    AMQ_PASSWORD: "activemq"
+    AMQ_TRANSPORTS: "openwire"
+    AMQ_QUEUES: "FUSE.TEST.QUEUE"
+    AMQ_STORAGE_USAGE_LIMIT: "600mb"
+    AMQ_QUEUE_MEMORY_LIMIT: "500mb"
+  ports:
+    - "61677:61616"
+    - "8161:8161"
+  labels:
+    NAME: "amq"

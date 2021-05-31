@@ -1,3 +1,13 @@
 micronaut:
   application:
     name: amqJmsExample
+  jms:
+    activemq:
+      classic:
+        enabled: true
+        connection-string: 'tcp://localhost:61677'
+        username: "activemq"
+        password: "activemq"
+
+config.jms:
+  destinationQueue: example-messages
