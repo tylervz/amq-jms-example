@@ -1,6 +1,6 @@
 # Micronaut ActiveMQ JMS Example
 
-A Micronaut CLI application demonstrating a bug.
+A Micronaut CLI application which demonstrated a [bug](https://github.com/micronaut-projects/micronaut-jms/issues/109).
 
 Uses:
 * Micronaut 2.5.4
@@ -50,7 +50,7 @@ To generate a native image using Gradle run:
 
 The native image will be created in `build/native-image/application` and can be run with `./build/native-image/application -v` .
 This will send a message to the ActiveMQ broker without an issue. 
-However, you'll notice that you get an error when running the native image while you have the AMQ broker running:
+Previously, you would get an error when running the native image while you have the AMQ broker running:
 
 ```
 io.micronaut.messaging.exceptions.MessagingClientException: Problem sending message to example-messages
@@ -113,6 +113,8 @@ Caused by: java.lang.ClassNotFoundException: org.apache.activemq.openwire.v10.Ma
         ... 10 more
 ```
 
-I have experienced the same problem when using a Docker image built using a GraalVM Native Image:
+And I experienced the same problem when using a Docker image built using a GraalVM Native Image:
 
     ./gradlew dockerBuildNative
+
+But the issue has been resolved by adding a TypeHint above the main class.
